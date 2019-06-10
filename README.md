@@ -27,4 +27,42 @@
 #### 8- Üst Logo Eklemek (Renkli)
 `<a href="<?=$lng;?>"><img src="<?=$themelogo;?>" alt="LOGO"></a>`
 #### 9- Menü Bağlantılarını Eklemek
-
+    <ul>
+                <?php
+                    $list = get_menu_list();
+                    foreach ($list as $key => $value) { 
+                    $categoryId = $value->categoryId;
+                ?>
+                  <?php if ($value->parentView==1){ ?>
+                  <li>
+                    <a href="<?=$value->menuLink;?>"><?=$value->menuName;?></a>
+                    <ul>
+                      <?php
+                          $productcategory=get_product_category($categoryId);
+                          foreach ($productcategory as $key => $value) {
+                              echo '
+                              <li>
+                                  <a href="'.$value->defaultUrl.'">'.$value->name.'</a>
+                              </li>'; 
+    
+                          } 
+                      ?>
+                      <?php
+    
+                          $productlist = get_product_list($categoryId);
+    
+                          foreach ($productlist as $key => $value) {
+                              echo '
+                              <li>
+                                  <a href="'.$value->defaultUrl.'">'.$value->name.'</a>
+                              </li>';  
+                          }
+                       ?>      
+                    </ul>
+                  </li>
+                  <?php }else{ ?>
+                    <li>
+                      <a href="<?=$value->menuLink;?>"><?=$value->menuName;?></a>
+                  <?php } ?>
+                <?php } ?>
+                </ul>
