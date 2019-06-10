@@ -4,7 +4,7 @@
 #### 1- Meta Etiketleri
 `<?=$meta->html; ?>`
 #### 2- Html Dil Kodu
-`<?=$lng; ?>
+`<?=$lng; ?>`
 #### 3- Header Dosyalarını Çağırmak (css, js)
 `assets/<?=$template; ?>`
 #### 4- Body Sub Kodu Eklemek
