@@ -27,7 +27,7 @@
 #### 8- Üst Logo Eklemek (Renkli)
 `<a href="<?=$lng;?>"><img src="<?=$themelogo;?>" alt="LOGO"></a>`
 #### 9- Menü Bağlantılarını Eklemek
-    <ul>
+```php    <ul>
                 <?php
                     $list = get_menu_list();
                     foreach ($list as $key => $value) { 
@@ -65,4 +65,4 @@
                       <a href="<?=$value->menuLink;?>"><?=$value->menuName;?></a>
                   <?php } ?>
                 <?php } ?>
-                </ul>
+                </ul>```
